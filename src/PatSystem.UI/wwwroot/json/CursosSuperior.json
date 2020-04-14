@@ -1,0 +1,150 @@
+[
+  {
+    "modalidade": "Humanas ",
+    "nome": [
+      "Artes",
+      "Artes Visuais",
+      "Ciências Sociais",
+      "Design" ,
+      "Direito" ,
+      "Filosofia",
+      "Geografia" ,
+      "História" ,
+      "Jornalismo",
+      "Letras - Língua Portuguesa ",
+      "Letras - Língua Estrangeira",
+      "Música",
+      "Publicidade e Propaganda",
+      "Relações Públicas",
+      "Teologia" ,
+      "Turismo" ,
+      "Ciências Humanas",
+      "Design de Games",
+      "Design de Interiores",
+"Design de Moda",
+"Tradutor e Intérprete"
+      
+    ]
+  },
+  {
+    "modalidade": "Engenharia ",
+    "nome": [
+      "Construção Civil",
+      "Engenharia Aeronáutica ",
+      "Engenharia Agrícola ",
+      "Engenharia Ambiental e Sanitária ",
+      "Engenharia Cartográfica e de Agrimensura ",
+      "Engenharia Civil ",
+      "Engenharia de Alimentos ",
+      "Engenharia de Bioprocessos" ,
+      "Engenharia de Computação ",
+      "Engenharia de Controle e Automação" ,
+      "Engenharia de Materiais" ,
+      "Engenharia de Minas ",
+      "Engenharia de Pesca ",
+     " Engenharia de Petróleo ",
+      "Engenharia de Produção ",
+      "Engenharia de Telecomunicações ",
+      "Engenharia Elétrica",
+      "Engenharia Eletrônica",
+      "Engenharia Florestal",
+      "Engenharia Mecânica ",
+      "Engenharia Metalúrgica" ,
+      "Engenharia Naval ",
+      "Engenharia Nuclear ",
+      "Engenharia Química" ,
+      "Engenharia Têxtil ",
+      "Engenharia Física",
+"Engenharia Hídrica"
+    ]
+  },
+  {
+    "modalidade": "Tecnologia ",
+    "nome": [
+      "Ciência da Computação",
+      "Informática",
+"Análise e Desenvolvimento de Sistemas",
+"Banco de Dados",
+"Engenharia de Sistemas",
+"Engenharia de Software",
+"Sistemas para Internet",
+"Tecnologia da Informação"
+    ]
+  },
+  {
+    "modalidade": "Ciencias ",
+    "nome": [
+      "Ciências Biológicas",
+      "Ciências Naturais",
+      "Educação Física" ,
+      "Biocombustíveis"
+    ]
+  },
+  {
+    "modalidade": "Administração e Gestão ",
+    "nome": [
+      "Administração",
+      "Administração Pública",
+      "Ciências Contábeis",
+      "Ciências Econômicas ",
+      "Estatística",
+      "Gestão de Cooperativas",
+      "Gestão Financeira" ,
+      "Gestão Pública",
+      "Logística",
+      "Processos Gerenciais"
+      
+    ]
+  },
+  {
+    "modalidade": "Produção ",
+    "nome": [
+      "Produção Audiovisual",
+      "Produção Cênica",
+      "Produção Cultural",
+      "Produção de Bebidas",
+      "Produção Editorial",
+      "Produção Fonográfica",
+      "Produção Multimídia",
+      "Produção Publicitária",
+      "Produção Sucroalcooleira",
+      "Produção Têxtil"
+    ]
+  },
+  {
+    "modalidade": "Saúde ",
+    "nome": [
+      "Medicina" ,
+      "Medicina Veterinária",
+      "Biomedicina",
+      "Enfermagem",
+      "Farmácia" ,
+      "Fisioterapia",
+      "Nutrição" ,
+      "Odontologia",
+      "Gestão Hospitalar"
+    ]
+  },
+  {
+    "modalidade": "Ambiental ",
+    "nome": [
+      "Agronomia",
+      "Ciências Agrárias",
+      "Saneamento Ambiental"
+    ]
+  },
+  {
+    "modalidade": "Exatas ",
+    "nome": [
+      "Física" ,
+      "Matemática",
+      "Meteorologia",
+      "Química" ,
+      "Zootecnia"
+    ]
+  }
+
+  
+
+
+]

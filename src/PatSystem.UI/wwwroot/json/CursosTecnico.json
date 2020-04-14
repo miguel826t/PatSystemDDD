@@ -1,0 +1,235 @@
+[
+  {
+    "modalidade": "Saúde",
+    "nome": [
+      "",
+      "Agente Comunitário de Saúde",
+      "Análises Clínicas",
+      "Biotecnologia",
+      "Citopatologia",
+      "Enfermagem",
+      "Equipamentos Biomédicos",
+      "Farmácia",
+      "Gerência em Saúde",
+      "Hemoterapia",
+      "Saúde Bucal",
+      "Imobilizações Ortopédicas",
+      "Nutrição e Dietética",
+      "Próteses e Órteses",
+      "Podologia",
+      "Prótese Dentária",
+      "Registros e Informações em Saúde",
+      "Vigilância em Saúde",
+      "Radiologia",
+      "Óptica",
+      "Reabilitação de Dependentes",
+      "Citopatologia",
+      "Imagem Pessoal",
+      "Químicos",
+      "Massoterapia",
+      "Estética"
+    ]
+  },
+  {
+    "modalidade": "Ambiente",
+    "nome": [
+      "",
+      "Meio Ambiente",
+      "Reciclagem",
+      "Controle Ambiental",
+      "Meteorologia"
+    ]
+  },
+  {
+    "modalidade": "Segurança",
+    "nome": [
+      "",
+      "Segurança do Trabalho"
+    ]
+  },
+  {
+    "modalidade": "Apoio Educacional",
+    "nome": [
+      "",
+      "Alimentação Escolar",
+      "Biblioteconomia",
+      "Infraestrutura Escolar",
+      "Multimeios Didáticos",
+      "Orientação Comunitária",
+      "Secretaria Escolar"
+    ]
+  },
+  {
+    "modalidade": "Controle e Processos Industriais",
+    "nome": [
+      "",
+      "Análises Químicas",
+      "Automação Industrial",
+      "Eletroeletrônica",
+      "Eletromecânica",
+      "Eletrônica",
+      "Eletrotécnica",
+      "Manutenção Automotiva",
+      "Máquinas Navais",
+      "Mecânica",
+      "Mecatrônica",
+      "Metalurgia",
+      "Petroquímica",
+      "Química",
+      "Refrigeração e Climatização",
+      "Sistemas a Gás"
+    ]
+  },
+  {
+    "modalidade": "Gestão e Negócios",
+    "nome": [
+      "",
+      "Administração",
+      "Comércio",
+      "Comércio Exterior",
+      "Contabilidade",
+      "Cooperativismo",
+      "Finanças",
+      "Logística",
+      "Marketing",
+      "Qualidade",
+      "Recursos Humanos",
+      "Secretariado",
+      "Seguros",
+      "Serviços de Condomínio",
+      "Serviços Públicos",
+      "Transações Imobiliárias",
+      "Vendas"
+    ]
+  },
+  {
+    "modalidade": "Hospitalidade e Lazer",
+    "nome": [
+      "",
+      "Agenciamento de Viagem",
+      "Cozinha",
+      "Eventos",
+      "Guia de Turismo",
+      "Hospedagem",
+      "Lazer",
+      "Serviços de Restaurante e Bar"
+    ]
+  },
+  {
+    "modalidade": "Informação e Comunicação",
+    "nome": [
+      "",
+      "Informática",
+      "Informática para Internet",
+      "Manutenção e Suporte em Informática",
+      "Programação de Jogos Digitais",
+      "Redes de Computadores",
+      "Sistemas de Comutação",
+      "Sistemas de Transmissão",
+      "Telecomunicações"
+    ]
+  },
+  {
+    "modalidade": "Infraestrutura",
+    "nome": [
+      "",
+      "Técnico Aeroportuário",
+      "Agrimensura",
+      "Carpintaria",
+      "Construção Civil",
+      "Edificações",
+      "Estradas",
+      "Geodésia e Cartografia",
+      "Geoprocessamento",
+      "Hidrologia",
+      "Manutenção de Aeronaves",
+      "Portos",
+      "Saneamento",
+      "Trânsito"
+    ]
+  },
+  {
+    "modalidade": "Produção Alimentícia",
+    "nome": [
+      "",
+      "Alimentos",
+      "Agroindústria",
+      "Apicultura",
+      "Cervejaria",
+      "Confeitaria",
+      "Panificação",
+      "Processamento de Pescado",
+      "Viticultura e Enologia"
+    ]
+  },
+  {
+    "modalidade": "Produção Cultural e Design",
+    "nome": [
+      "",
+      "Artes Visuais",
+      "Artesanato",
+      "Composição e Arranjo",
+      "Comunicação Visual",
+      "Conservação e Restauro",
+      "Dança",
+      "Design de Calçados",
+      "Design de Embalagens",
+      "Design de Interiores",
+      "Design de Joias",
+      "Design de Móveis",
+      "Documentação Musical",
+      "Fabricação de Instrumentos Musicais",
+      "Instrumento Musical",
+      "Modelagem do Vestuário",
+      "Multimídia",
+      "Paisagismo",
+      "Processos Fotográficos",
+      "Produção de Áudio e Vídeo",
+      "Produção de Moda",
+      "Publicidade",
+      "Rádio e Televisão",
+      "Regência"
+    ]
+  },
+  {
+    "modalidade": "Produção Industrial",
+    "nome": [
+      "",
+      "Açúcar e Álcool",
+      "Biocombustíveis",
+      "Calçados",
+      "Celulose e Papel",
+      "Cerâmica",
+      "Construção Naval",
+      "Curtimento",
+      "Fabricação Mecânica",
+      "Impressão Gráfica",
+      "Impressão Offset",
+      "Joalheria",
+      "Móveis",
+      "Petróleo e Gás",
+      "Plásticos",
+      "Pré-Impressão Gráfica",
+      "Tecelagem",
+      "Vestuário"
+    ]
+  },
+  {
+    "modalidade": "Recursos Naturais",
+    "nome": [
+      "",
+      "Agricultura",
+      "Agroecologia",
+      "Agronegócio",
+      "Agropecuária",
+      "Aquicultura",
+      "Cafeicultura",
+      "Florestas",
+      "Fruticultura",
+      "Geologia",
+      "Mineração",
+      "Pesca",
+      "Recursos Minerais",
+      "Zootecnia"
+    ]
+  }]

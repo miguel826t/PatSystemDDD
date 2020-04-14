@@ -1,0 +1,98 @@
+﻿@model IEnumerable<PatSystem.UI.ViewModels.CRindexViewModel>
+
+@{
+    ViewData["Title"] = "Lista";
+
+}
+
+
+@await Html.PartialAsync("~/Views/Curriculo/PartialViews/_MenuSuperior.cshtml")
+<div class="card shadow mb-4 mt-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Lista de Curriculos</h6>
+    </div>
+    <div class="card-body">
+            <table class="table text-center  w3-striped" id="dataTable" width="100%" cellspacing="0">
+                <thead class="table-dark ">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CurriculoID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Idade)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AreaAtuacao)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EnsinoMedio)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CursoTecnicoSN)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CursoSuperiorSN)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdiomaSN)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ExperienciaSN)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CurriculoID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Idade)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AreaAtuacao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EnsinoMedio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CursoTecnicoSN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CursoSuperiorSN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdiomaSN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ExperienciaSN)
+                            </td>
+                            <td class="row ">
+                                <a class="btn btn-primary  ml-1 pt-0 mt-1 btn-sm" asp-action="Edit" asp-route-id="@item.CurriculoID">Editar</a>
+                                <a class="btn btn-success  ml-1 pt-0 mt-1 btn-sm" asp-action="Details" asp-route-id="@item.CurriculoID">Detalhe</a>
+                                <a class="btn btn-danger  ml-1 pt-0 mt-1 btn-sm" asp-action="Remove" asp-route-id="@item.CurriculoID">Remover</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+<script src="~/Layout/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Layout/vendor/datatables/dataTables.bootstrap4.js"></script>
+<link href="~/Layout/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+
+<!-- Page level custom scripts -->
+<script src="~/js/demo/datatables-demo.js"></script>

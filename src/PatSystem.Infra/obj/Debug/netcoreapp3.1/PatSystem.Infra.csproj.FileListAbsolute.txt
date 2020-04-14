@@ -1,0 +1,12 @@
+C:\Trabalho\PatSystem\src\PatSystem.Infra\bin\Debug\netcoreapp3.1\PatSystem.Infra.deps.json
+C:\Trabalho\PatSystem\src\PatSystem.Infra\bin\Debug\netcoreapp3.1\PatSystem.Infra.dll
+C:\Trabalho\PatSystem\src\PatSystem.Infra\bin\Debug\netcoreapp3.1\PatSystem.Infra.pdb
+C:\Trabalho\PatSystem\src\PatSystem.Infra\bin\Debug\netcoreapp3.1\PatSystem.Domain.dll
+C:\Trabalho\PatSystem\src\PatSystem.Infra\bin\Debug\netcoreapp3.1\PatSystem.Domain.pdb
+C:\Trabalho\PatSystem\src\PatSystem.Infra\obj\Debug\netcoreapp3.1\PatSystem.Infra.csprojAssemblyReference.cache
+C:\Trabalho\PatSystem\src\PatSystem.Infra\obj\Debug\netcoreapp3.1\PatSystem.Infra.csproj.CoreCompileInputs.cache
+C:\Trabalho\PatSystem\src\PatSystem.Infra\obj\Debug\netcoreapp3.1\PatSystem.Infra.AssemblyInfoInputs.cache
+C:\Trabalho\PatSystem\src\PatSystem.Infra\obj\Debug\netcoreapp3.1\PatSystem.Infra.AssemblyInfo.cs
+C:\Trabalho\PatSystem\src\PatSystem.Infra\obj\Debug\netcoreapp3.1\PatSystem.Infra.csproj.CopyComplete
+C:\Trabalho\PatSystem\src\PatSystem.Infra\obj\Debug\netcoreapp3.1\PatSystem.Infra.dll
+C:\Trabalho\PatSystem\src\PatSystem.Infra\obj\Debug\netcoreapp3.1\PatSystem.Infra.pdb

@@ -1,0 +1,396 @@
+﻿@model PatSystem.UI.ViewModels.CRcreateViewModel
+
+@{
+    ViewData["Title"] = "Criar";
+}
+<script src="~/script/ScriptBuscaCidade.js"></script>
+<script src="~/script/ScriptCursoTecnico.js"></script>
+<script src="~/script/ScriptCursoSuperior.js"></script>
+@await Html.PartialAsync("~/Views/Curriculo/PartialViews/_MenuSuperior.cshtml")
+<hr />
+
+
+<form asp-action="Create" style="font-size:15px">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <nav id="Cliente">
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id01" data-toggle="collapse" data-target="#c01">
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary">Cliente</h6>
+                <button type="button" class="w3-bar-item w3-button w3-left w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
+            </div>
+            <div id="c01" class="collapse show border-top">
+                <div class="row card-body">
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.Nome" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Cliente.Nome" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.Nascimento" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Cliente.Nascimento" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-0">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.TlFixo" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Cliente.TlFixo" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.TlMovel" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Cliente.TlMovel" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.Email" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Cliente.Email" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.AreaAtuacao" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Cliente.AreaAtuacao" class="form-control m-0 mr-sm-2">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.EnsinoMedio" class="mb-1 mr-sm-2"></label>
+                        <select asp-for="Cliente.EnsinoMedio" class="custom-select form-control m-0 mr-sm-2">
+                            <option>  </option>
+                            <option>Incompleto</option>
+                            <option>Completo</option>
+                            <option>Cursando</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <nav id="Endereco">
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id02" data-toggle="collapse" data-target="#c02">
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary">Endereço</h6>
+                <button type="button" class="w3-bar-item w3-button w3-left w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
+            </div>
+            <div id="c01" class="collapse show border-top">
+                <div class="row card-body">
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.UF" class="mb-1 mr-sm-2"></label>
+                        <select id="estados" class="form-control mr-2 mb-3" asp-for="Cliente.UF">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.Cidade" class="mb-1 mr-sm-2"></label>
+                        <select id="cidades" asp-for="Cliente.Cidade" class="form-control p-1 mb-3"></select>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-0">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.Bairro" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Cliente.Bairro" class="form-control m-0 mr-sm-2">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.Rua" class="mb-1 mr-sm-2"></label>
+                        <input type="text" asp-for="Cliente.Rua" class="form-control m-0 mr-sm-2">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cliente.Numero" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Cliente.Numero" class="form-control m-0 mr-sm-2">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <nav id="Cursos">
+        <!-- Modal Criar Curso Superior -->
+        <div id="ModalCursoSuperior" class="w3-modal pt-5">
+            <div class="w3-modal-content text-left rounded" style="width:800px;">
+                <header class="card-header rounded-top w3-border-bottom">
+                    <span onclick="document.getElementById('ModalCursoSuperior').style.display='none'" class="w3-button w3-hover-text-red w3-hover-none w3-display-topright rounded-right" title="Fechar"><i class="fas fa-times"></i></span>
+                    <h3 class="m-0 font-weight-bold text-primary">Novo Curso Superior</h3>
+                </header>
+                <div class="table-responsive modal-body">
+                    <div id="c01" class="collapse show border-top">
+                        <div class="row card-body">
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="CursoSuperior.Status" class="mb-1 mr-sm-2"></label>
+                                <select class="custom-select" asp-for="CursoSuperior.Status"
+                                        asp-items="Html.GetEnumSelectList<PatSystem.Domain.Enums.StatusCurso>()">
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="CursoSuperior.Modalidade" class="mb-1 mr-sm-2"></label>
+                                <select id="ModalidadeSuperior" class="form-control" asp-for="CursoSuperior.Modalidade">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="CursoSuperior.Tipo" class="mb-1 mr-sm-2"></label>
+                                <select asp-for="CursoSuperior.Tipo" class="custom-select">
+                                    <option>  </option>
+                                    <option>Presencial</option>
+                                    <option>EAD</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="CursoSuperior.Nome" class="mb-1 mr-sm-2"></label>
+                                <select id="NomeCursoSuperior" asp-for="CursoSuperior.Nome" class="form-control p-1">
+                                </select>
+                            </div>
+
+                            <div class="col-lg-8 col-md-8 col-12">
+                                <label asp-for="CursoSuperior.Instituicao" class="mb-1 mr-sm-2"></label>
+                                <input asp-for="CursoSuperior.Instituicao" value="" class="form-control m-0 mr-sm-2">
+                            </div>
+
+                            <div class="col-lg-8 col-md-8 col-12">
+                                <input type="submit" class="form-control m-0 mr-sm-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista Curso Superior -->
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id02" data-toggle="collapse" data-target="#c02">
+                <button onclick="document.getElementById('ModalCursoSuperior').style.display='block'" type="button" class="w3-bar-item w3-button w3-left w3-hover-none pr-0 pt-2"><i class="fas fa-plus-square mr-1"></i></button>
+                @*<a onclick="document.getElementById('mParcelas').style.display='block'" class="w3-bar-item"><i class="fas fa-plus-square mr-1" style="cursor:pointer"></i></a>*@
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary pl-1">Curso Superior</h6>
+                <button type="button" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
+            </div>
+
+            <table class="w3-table table-bordered w3-small w3-table-all w3-striped w3-border w3-white">
+                @if (Model.CursosSuperior != null)
+                {
+                    <thead>
+                        <tr>
+                            <th class="w3-center">Codigo</th>
+                            <th class="w3-left-align">Modalidade</th>
+                            <th class="w3-center">Nome</th>
+                            <th class="w3-center">Tipo</th>
+                            <th class="w3-center">Status</th>
+                            <th class="w3-center">Instituição</th>
+                            <th class="w3-center">Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var i = 0; i < Model.CursosSuperior.Count; i++)
+                        {
+                            <tr>
+                                <td class="w3-center">@Model.CursosSuperior[i].CursoSuperiorId<input asp-for="CursosSuperior[i].CursoSuperiorId" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosSuperior[i].CursoSuperiorId" type="hidden" /></td>
+                                <td class="w3-center"><input asp-for="CursosSuperior[i].Modalidade" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosSuperior[i].Modalidade" /></td>
+                                <td class="w3-center"><input asp-for="CursosSuperior[i].Nome" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosSuperior[i].Nome" /></td>
+                                <td class="w3-center"><input asp-for="CursosSuperior[i].Tipo" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosSuperior[i].Tipo" /></td>
+                                <td class="w3-center"><input asp-for="CursosSuperior[i].Status" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosSuperior[i].Status" /></td>
+                                <td class="w3-center"><input asp-for="CursosSuperior[i].Instituicao" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosSuperior[i].Instituicao" /></td>
+                                <td class="w3-center" style="padding:0px;"><a class="btn w3-hover-red btn-sm" style="margin-top:3px;"><i class="far fa-trash-alt"></i></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                }
+            </table>
+        </div>
+
+
+
+        <!-- Modal Criar Curso Tecnico -->
+        <div id="ModalCursoTecnico" class="w3-modal pt-5">
+            <div class="w3-modal-content text-left rounded" style="width:800px;">
+                <header class="card-header rounded-top w3-border-bottom">
+                    <span onclick="document.getElementById('ModalCursoTecnico').style.display='none'" class="w3-button w3-hover-text-red w3-hover-none w3-display-topright rounded-right" title="Fechar"><i class="fas fa-times"></i></span>
+                    <h3 class="m-0 font-weight-bold text-primary">Novo Curso Tecnico</h3>
+                </header>
+                <div class="table-responsive modal-body">
+                    <div id="c01" class="collapse show border-top">
+                        <div class="row card-body">
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="CursoTecnico.Status" class="mb-1 mr-sm-2"></label>
+                                <select class="custom-select" asp-for="CursoTecnico.Status "
+                                        asp-items="Html.GetEnumSelectList<PatSystem.Domain.Enums.StatusCurso>()">
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="CursoTecnico.Modalidade" class="mb-1 mr-sm-2"></label>
+                                <select id="ModalidadeTecnico" class="form-control" asp-for="CursoTecnico.Modalidade">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="CursoTecnico.Tipo" class="mb-1 mr-sm-2"></label>
+                                <select asp-for="CursoTecnico.Tipo" class="custom-select">
+                                    <option value="">  </option>
+                                    <option>Presencial</option>
+                                    <option>EAD</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="CursoTecnico.Nome" class="mb-1 mr-sm-2"></label>
+                                <select id="NomeCursoTecnico" asp-for="CursoTecnico.Nome" class="form-control p-1">
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="CursoTecnico.Instituicao" class="mb-1 mr-sm-2"></label>
+                                <input asp-for="CursoTecnico.Instituicao" class="form-control m-0 mr-sm-2">
+                            </div>
+
+                            <div class="col-lg-8 col-md-8 col-12">
+                                <input type="submit" class="form-control m-0 mr-sm-2">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Lista Curso Tecnico -->
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id02" data-toggle="collapse" data-target="#c02">
+                <button onclick="document.getElementById('ModalCursoTecnico').style.display='block'" type="button" class="w3-bar-item w3-button w3-left w3-hover-none pr-0 pt-2"><i class="fas fa-plus-square mr-1"></i></button>
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary pl-1">Curso Tecnico</h6>
+                <button type="button" class="w3-bar-item w3-button w3-left w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
+            </div>
+            <table class="w3-table table-bordered w3-small w3-table-all w3-striped w3-border w3-white">
+                @if (Model.CursosTecnico != null)
+                {
+                    <thead>
+                        <tr>
+                            <th class="w3-center">Codigo</th>
+                            <th class="w3-left-align">Modalidade</th>
+                            <th class="w3-center">Nome</th>
+                            <th class="w3-center">Tipo</th>
+                            <th class="w3-center">Status</th>
+                            <th class="w3-center">Instituição</th>
+                            <th class="w3-center">Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var i = 0; i < Model.CursosTecnico.Count; i++)
+                        {
+                            <tr>
+                                <td class="w3-center">@Model.CursosTecnico[i].CursoTecnicoId<input asp-for="CursosTecnico[i].CursoTecnicoId" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosTecnico[i].CursoTecnicoId" type="hidden" /></td>
+                                <td class="w3-center"><input asp-for="CursosTecnico[i].Modalidade" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosTecnico[i].Modalidade" /></td>
+                                <td class="w3-center"><input asp-for="CursosTecnico[i].Nome" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosTecnico[i].Nome" /></td>
+                                <td class="w3-center"><input asp-for="CursosTecnico[i].Tipo" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosTecnico[i].Tipo" /></td>
+                                <td class="w3-center"><input asp-for="CursosTecnico[i].Status" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosTecnico[i].Status" /></td>
+                                <td class="w3-center"><input asp-for="CursosTecnico[i].Instituicao" readonly style="border:0px;background:none;" class="w3-center" value="@Model.CursosTecnico[i].Instituicao" /></td>
+                                <td class="w3-center" style="padding:0px;"><a class="btn w3-hover-red btn-sm" style="margin-top:3px;"><i class="far fa-trash-alt"></i></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                }
+            </table>
+        </div>
+    </nav>
+
+
+    <nav id="Idioma">
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id02" data-toggle="collapse" data-target="#c02">
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary">Idioma</h6>
+                <button type="button" class="w3-bar-item w3-button w3-left w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
+            </div>
+            <div id="c01" class="collapse show border-top">
+                <div class="row card-body">
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Idioma.Nome" class="mb-1 mr-sm-2"></label>
+                        <select class="custom-select" asp-for="Idioma.Nome "
+                                asp-items="Html.GetEnumSelectList<PatSystem.Domain.Enums.Linguas>()">
+                        </select>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Idioma.Instituicao" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Idioma.Instituicao" class="form-control m-0 mr-sm-2">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-0"></div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Idioma.AnosCursados" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Idioma.AnosCursados" class="form-control m-0 mr-sm-2">
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Idioma.NivelFluencia" class="mb-1 mr-sm-2"></label>
+                        <select class="form-control" asp-for="Idioma.NivelFluencia "
+                                asp-items="Html.GetEnumSelectList<PatSystem.Domain.Enums.LevelSpeak>()">
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <nav id="Experiencia">
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id02" data-toggle="collapse" data-target="#c02">
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary">Experiencia</h6>
+                <button type="button" class="w3-bar-item w3-button w3-left w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
+            </div>
+            <div id="c01" class="collapse show border-top">
+                <div class="row card-body">
+
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Experiencia.NomeEmpresa" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Experiencia.NomeEmpresa" class="form-control m-0 mr-sm-2">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Experiencia.UltimoCargo" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Experiencia.UltimoCargo" class="form-control m-0 mr-sm-2">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Experiencia.Anos" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Experiencia.Anos" class="form-control m-0 mr-sm-2">
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Experiencia.Descricao" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Experiencia.Descricao" class="form-control m-0 mr-sm-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="form-group row mt-2">
+        <a asp-action="Index" class="btn btn-primary mr-2">Voltar</a>
+        <input class="btn btn-success pr-3" type="submit" value="Criar" btn btn-primary" />
+
+    </div>
+</form>
+
+
+
+@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

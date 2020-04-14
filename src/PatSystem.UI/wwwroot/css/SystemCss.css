@@ -1,0 +1,21 @@
+﻿.bg-system {
+    background: #001568;
+}
+.topBarConfig {
+    padding-top: 0px;
+    border-bottom-width: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+
+.SideBar-lyrics {
+    font-size: 18px;
+    color: white;
+}
+
+.SideBarSize {
+    margin-left: 18%;
+}
+
+
+

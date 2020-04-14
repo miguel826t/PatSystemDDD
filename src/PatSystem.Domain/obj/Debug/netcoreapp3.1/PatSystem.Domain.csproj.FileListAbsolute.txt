@@ -1,0 +1,10 @@
+C:\Trabalho\PatSystem\src\PatSystem.Domain\bin\Debug\netcoreapp3.1\PatSystem.Domain.deps.json
+C:\Trabalho\PatSystem\src\PatSystem.Domain\bin\Debug\netcoreapp3.1\PatSystem.Domain.dll
+C:\Trabalho\PatSystem\src\PatSystem.Domain\bin\Debug\netcoreapp3.1\PatSystem.Domain.pdb
+C:\Trabalho\PatSystem\src\PatSystem.Domain\obj\Debug\netcoreapp3.1\PatSystem.Domain.Common.Messages.Messages.resources
+C:\Trabalho\PatSystem\src\PatSystem.Domain\obj\Debug\netcoreapp3.1\PatSystem.Domain.csproj.GenerateResource.cache
+C:\Trabalho\PatSystem\src\PatSystem.Domain\obj\Debug\netcoreapp3.1\PatSystem.Domain.csproj.CoreCompileInputs.cache
+C:\Trabalho\PatSystem\src\PatSystem.Domain\obj\Debug\netcoreapp3.1\PatSystem.Domain.AssemblyInfoInputs.cache
+C:\Trabalho\PatSystem\src\PatSystem.Domain\obj\Debug\netcoreapp3.1\PatSystem.Domain.AssemblyInfo.cs
+C:\Trabalho\PatSystem\src\PatSystem.Domain\obj\Debug\netcoreapp3.1\PatSystem.Domain.dll
+C:\Trabalho\PatSystem\src\PatSystem.Domain\obj\Debug\netcoreapp3.1\PatSystem.Domain.pdb

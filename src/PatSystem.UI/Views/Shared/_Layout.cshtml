@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+@await Html.PartialAsync("PartialViews/_Head")
+
+
+<body id="page-top" class="w3-white">
+    @await Html.PartialAsync("PartialViews/_SideBar")
+
+    <div class="container-fluid">
+        <div id="content-wrapper" class="d-flex flex-column">
+            @await Html.PartialAsync("PartialViews/_Header")
+            <div class="container-fluid">
+
+
+
+                @RenderBody()
+
+
+
+            </div>
+        </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+
+    
+    <script src="~/Layout/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Layout/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script src="~/Layout/sb-admin-2.js"></script>
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html>
