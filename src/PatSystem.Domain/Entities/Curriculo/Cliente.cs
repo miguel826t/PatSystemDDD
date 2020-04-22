@@ -1,6 +1,4 @@
-﻿using PatSystem.Domain.Entities;
-using PatSystem.Domain.Enums;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace PatSystem.Domain.Entities.Curriculo
@@ -44,7 +42,7 @@ namespace PatSystem.Domain.Entities.Curriculo
 
         public int Idade { get; set; }
 
-        public Sexo Sexo { get; set; }
+        //public Sexo Sexo { get; set; }
 
         [Required(ErrorMessage = "{0} é Obrigatório")]
         public string Cidade { get; set; }

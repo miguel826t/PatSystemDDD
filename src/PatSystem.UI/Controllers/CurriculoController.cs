@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PatSystem.Domain.Entities.Curriculo;
 using PatSystem.Domain.Entities.Curriculo.Cursos;
-using PatSystem.Infra.Repository.Services;
+using PatSystem.Infra.Repository;
 
 using PatSystem.UI.ViewModels;
 using System;
@@ -14,16 +14,16 @@ namespace PatSystem.Controllers
     public class CurriculoController : Controller
     {
         #region Servicos
-        private readonly ClienteService _clienteService;
-        private readonly CursoSuperiorService _cursoSuperiorService;
-        private readonly CursoTecnicoService _cursoTecnicoService;
-        private readonly ExperienciaService _experienciaService;
-        private readonly IdiomaService _idiomaService;
-        private readonly CurriculoService _curriculoService;
+        private readonly ClienteRepository _clienteService;
+        private readonly CursoSuperiorRepository _cursoSuperiorService;
+        private readonly CursoTecnicoRepository _cursoTecnicoService;
+        private readonly ExperienciaRepository _experienciaService;
+        private readonly IdiomaRepository _idiomaService;
+        private readonly CurriculoRepository _curriculoService;
         #endregion
 
         #region Contrutor
-        public CurriculoController(ClienteService clienteService, CursoSuperiorService cursoSuperior, CursoTecnicoService cursoTecnicoService, ExperienciaService experiencia, IdiomaService idioma, CurriculoService curriculoService)
+        public CurriculoController(ClienteRepository clienteService, CursoSuperiorRepository cursoSuperior, CursoTecnicoRepository cursoTecnicoService, ExperienciaRepository experiencia, IdiomaRepository idioma, CurriculoRepository curriculoService)
         {
             _curriculoService = curriculoService;
             _clienteService = clienteService;

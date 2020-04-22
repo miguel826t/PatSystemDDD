@@ -1,5 +1,4 @@
-﻿using PatSystem.Domain.Entities;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PatSystem.Domain.Entities.SegDesemprego
 {

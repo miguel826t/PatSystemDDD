@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PatSystem.Infra.Repository.Services
+namespace PatSystem.Infra.Repository
 {
-    public class CursoSuperiorService
+    public class CursoSuperiorRepository
     {
         private readonly PatSystemContext _context;
 
-        public CursoSuperiorService(PatSystemContext context)
+        public CursoSuperiorRepository(PatSystemContext context)
         {
             _context = context;
         }

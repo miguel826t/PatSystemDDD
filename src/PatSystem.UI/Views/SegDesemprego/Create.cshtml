@@ -1,0 +1,130 @@
+﻿@model PatSystem.UI.ViewModels.SegCreateViewModel
+
+@{
+    ViewData["Title"] = "Criar";
+}
+
+@await Html.PartialAsync("~/Views/SegDesemprego/PartialViews/_MenuSuperior.cshtml")
+<hr />
+
+<form asp-action="SegDesemprego" method="post" style="font-size:15px">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <nav id="Seguro">
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id01" data-toggle="collapse" data-target="#c01">
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary">Cadastro de Seguro Desemprego</h6>
+            </div>
+            <div id="c01" class="collapse show border-top">
+                <div class="row card-body">
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Seguro.CodSeguro" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Seguro.CodSeguro" maxlength="11" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Seguro.Date" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Seguro.Date" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal Lista CBO -->
+    <div id="modalCbo" class="w3-modal pt-5">
+        <div class="w3-modal-content text-left rounded" style="width:700px;">
+            <header class="card-header rounded-top w3-border-bottom">
+                <span onclick="document.getElementById('modalCbo').style.display='none'" class="w3-button w3-hover-text-red w3-hover-none w3-display-topright rounded-right" title="Fechar"><i class="fas fa-times"></i></span>
+                <h3 class="m-0 font-weight-bold text-primary">Cliente</h3>
+            </header>
+            <div class="table-responsive modal-body">
+                <table class="table w3-table table-bordered w3-small w3-table-all w3-striped w3-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="w3-center">CBO</th>
+                            <th class="w3-center">Profissão</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Cbos)
+                        {
+                            <tr class="pointer">
+                                <td class="w3-center">
+                                    @Html.DisplayFor(modelItem => item.CodCboId)
+                                </td>
+                                <td class="w3-center">
+                                    @Html.DisplayFor(modelItem => item.Desc)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <nav id="Cbo">
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id01" data-toggle="collapse" data-target="#c01">
+                <button onclick="document.getElementById('modalCbo').style.display='block'" type="button" class="w3-bar-item w3-button w3-left w3-hover-none pr-0 pt-2"><i class="fa fa-search mr-1"></i></button>
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary">Profissão</h6>
+            </div>
+            <div id="c01" class="collapse show border-top">
+                <div class="row card-body">
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Seguro.CodCboid" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Seguro.CodCboid" maxlength="6" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Cbo.Desc" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Cbo.Desc" maxlength="30" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    
+    <nav id="Empresa">
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id01" data-toggle="collapse" data-target="#c01">
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary">Empresa</h6>
+            </div>
+            <div id="c01" class="collapse show border-top">
+                <div class="row card-body">
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Seguro.EmpresaId"  class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Seguro.EmpresaId" maxlength="14" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Empresa.Nome" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Empresa.Nome" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <label asp-for="Empresa.Segmento" class="mb-1 mr-sm-2"></label>
+                        <input asp-for="Empresa.Segmento" class="form-control m-0 mr-sm-2 mb-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="form-group row mt-2">
+        <a asp-action="Index" class="btn btn-primary mr-2">Voltar</a>
+        <input class="btn btn-success pr-3" asp-action="Create" type="submit" value="Criar" btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script src="~/Layout/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Layout/vendor/datatables/dataTables.bootstrap4.js"></script>
+<link href="~/Layout/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+
+<!-- Page level custom scripts -->
+<script src="~/js/demo/datatables-demo.js"></script>

@@ -12,8 +12,4 @@
     <ProjectReference Include="..\PatSystem.Domain\PatSystem.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repository\Services\" />
-  </ItemGroup>
-
 </Project>

@@ -2,14 +2,14 @@
 
 namespace PatSystem.UI.ViewModels
 {
-    public class SGlistViewModel
+    public class SegListViewModel
     {
-        [Display(Name = "Id")]
-        public int SeguroId { get; set; }
 
-        [Display(Name = "Data")]
-        [DataType(DataType.Date)]
-        public string Date { get; set; }
+        [Display(Name = "Id")]
+        public double SegId { get; set; }
+
+        [Display(Name = "Requerimento")]
+        public string CodSeguro { get; set; }
 
         [Display(Name = "Profissão")]
         public string Profissao { get; set; }
@@ -17,7 +17,7 @@ namespace PatSystem.UI.ViewModels
         [Display(Name = "Empresa")]
         public string Empresa { get; set; }
 
-        [Display(Name = "Segmento")]
         public string Segmento { get; set; }
+
     }
 }

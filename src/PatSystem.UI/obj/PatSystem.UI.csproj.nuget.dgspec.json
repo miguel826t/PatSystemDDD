@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Trabalho\\PatSystem\\src\\PatSystem.UI\\PatSystem.UI.csproj": {}
+    "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.UI\\PatSystem.UI.csproj": {}
   },
   "projects": {
-    "C:\\Trabalho\\PatSystem\\src\\PatSystem.Domain\\PatSystem.Domain.csproj": {
+    "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\PatSystem.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Trabalho\\PatSystem\\src\\PatSystem.Domain\\PatSystem.Domain.csproj",
+        "projectUniqueName": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\PatSystem.Domain.csproj",
         "projectName": "PatSystem.Domain",
-        "projectPath": "C:\\Trabalho\\PatSystem\\src\\PatSystem.Domain\\PatSystem.Domain.csproj",
-        "packagesPath": "C:\\Users\\est3\\.nuget\\packages\\",
-        "outputPath": "C:\\Trabalho\\PatSystem\\src\\PatSystem.Domain\\obj\\",
+        "projectPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\PatSystem.Domain.csproj",
+        "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
+        "outputPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\est3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -66,22 +62,18 @@
         }
       }
     },
-    "C:\\Trabalho\\PatSystem\\src\\PatSystem.Infra\\PatSystem.Infra.csproj": {
+    "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Infra\\PatSystem.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Trabalho\\PatSystem\\src\\PatSystem.Infra\\PatSystem.Infra.csproj",
+        "projectUniqueName": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Infra\\PatSystem.Infra.csproj",
         "projectName": "PatSystem.Infra",
-        "projectPath": "C:\\Trabalho\\PatSystem\\src\\PatSystem.Infra\\PatSystem.Infra.csproj",
-        "packagesPath": "C:\\Users\\est3\\.nuget\\packages\\",
-        "outputPath": "C:\\Trabalho\\PatSystem\\src\\PatSystem.Infra\\obj\\",
+        "projectPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Infra\\PatSystem.Infra.csproj",
+        "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
+        "outputPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Infra\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\est3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -93,8 +85,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Trabalho\\PatSystem\\src\\PatSystem.Domain\\PatSystem.Domain.csproj": {
-                "projectPath": "C:\\Trabalho\\PatSystem\\src\\PatSystem.Domain\\PatSystem.Domain.csproj"
+              "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\PatSystem.Domain.csproj": {
+                "projectPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\PatSystem.Domain.csproj"
               }
             }
           }
@@ -132,22 +124,18 @@
         }
       }
     },
-    "C:\\Trabalho\\PatSystem\\src\\PatSystem.UI\\PatSystem.UI.csproj": {
+    "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.UI\\PatSystem.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Trabalho\\PatSystem\\src\\PatSystem.UI\\PatSystem.UI.csproj",
+        "projectUniqueName": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.UI\\PatSystem.UI.csproj",
         "projectName": "PatSystem.UI",
-        "projectPath": "C:\\Trabalho\\PatSystem\\src\\PatSystem.UI\\PatSystem.UI.csproj",
-        "packagesPath": "C:\\Users\\est3\\.nuget\\packages\\",
-        "outputPath": "C:\\Trabalho\\PatSystem\\src\\PatSystem.UI\\obj\\",
+        "projectPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.UI\\PatSystem.UI.csproj",
+        "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
+        "outputPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.UI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\est3\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -159,11 +147,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Trabalho\\PatSystem\\src\\PatSystem.Domain\\PatSystem.Domain.csproj": {
-                "projectPath": "C:\\Trabalho\\PatSystem\\src\\PatSystem.Domain\\PatSystem.Domain.csproj"
+              "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\PatSystem.Domain.csproj": {
+                "projectPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\PatSystem.Domain.csproj"
               },
-              "C:\\Trabalho\\PatSystem\\src\\PatSystem.Infra\\PatSystem.Infra.csproj": {
-                "projectPath": "C:\\Trabalho\\PatSystem\\src\\PatSystem.Infra\\PatSystem.Infra.csproj"
+              "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Infra\\PatSystem.Infra.csproj": {
+                "projectPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Infra\\PatSystem.Infra.csproj"
               }
             }
           }
@@ -186,6 +174,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.3, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.1, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",

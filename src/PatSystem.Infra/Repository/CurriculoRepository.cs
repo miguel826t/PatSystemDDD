@@ -4,13 +4,13 @@ using PatSystem.Infra.Data;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PatSystem.Infra.Repository.Services
+namespace PatSystem.Infra.Repository
 {
-    public class CurriculoService
+    public class CurriculoRepository
     {
         private readonly PatSystemContext _context;
 
-        public CurriculoService(PatSystemContext context)
+        public CurriculoRepository(PatSystemContext context)
         {
             _context = context;
         }

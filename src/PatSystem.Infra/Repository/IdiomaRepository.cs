@@ -5,24 +5,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PatSystem.Infra.Repository.Services
+namespace PatSystem.Infra.Repository
 {
-    public class ExperienciaService
+    public class IdiomaRepository
     {
         private readonly PatSystemContext _context;
 
-        public ExperienciaService(PatSystemContext context)
+        public IdiomaRepository(PatSystemContext context)
         {
             _context = context;
         }
 
-        public async Task InsertAsync(Experiencia obj)
+        public async Task InsertAsync(Idioma obj)
         {
             _context.Add(obj);
             await _context.SaveChangesAsync();
         }
 
-        public async Task InsertAllAsync(List<Experiencia> objs)
+        public async Task InsertAllAsync(List<Idioma> objs)
         {
             foreach (var obj in objs)
             {
@@ -34,24 +34,24 @@ namespace PatSystem.Infra.Repository.Services
 
         public async Task RemoveAllAsync(int curriculoId)
         {
-            var Objs = await _context.Experiencia.Where(c => c.CurriculoID == curriculoId).ToListAsync();
+            var Objs = await _context.Idioma.Where(c => c.CurriculoID == curriculoId).ToListAsync();
             foreach (var obj in Objs)
             {
-                _context.Experiencia.Remove(obj);
+                _context.Idioma.Remove(obj);
                 await _context.SaveChangesAsync();
             }
 
         }
 
 
-        public async Task<Experiencia> FindByIdAsync(int id)
+        public async Task<Idioma> FindByIdAsync(int id)
         {
-            return await _context.Experiencia.FirstOrDefaultAsync(obj => obj.CurriculoID == id);
+            return await _context.Idioma.FirstOrDefaultAsync(obj => obj.CurriculoID == id);
         }
 
-        public async Task<List<Experiencia>> FindAllByIdAsync(int id)
+        public async Task<List<Idioma>> FindAllByIdAsync(int id)
         {
-            return await _context.Experiencia.Where(obj => obj.CurriculoID == id).ToListAsync();
+            return await _context.Idioma.Where(obj => obj.CurriculoID == id).ToListAsync();
         }
     }
 }

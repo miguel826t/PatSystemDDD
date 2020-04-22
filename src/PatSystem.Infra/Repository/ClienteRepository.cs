@@ -5,13 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PatSystem.Infra.Repository.Services
+namespace PatSystem.Infra.Repository
 {
-    public class ClienteService
+    public class ClienteRepository
     {
         private readonly PatSystemContext _context;
 
-        public ClienteService(PatSystemContext context)
+        public ClienteRepository(PatSystemContext context)
         {
             _context = context;
         }

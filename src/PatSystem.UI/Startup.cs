@@ -6,7 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PatSystem.Domain.Interfaces;
 using PatSystem.Infra.Data;
+using PatSystem.Infra.Repository;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -36,6 +38,13 @@ namespace PatSystem.UI
             services.AddMvc(options => {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             });
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<ClienteRepository>();
+            services.AddScoped<CurriculoRepository>();
+            services.AddScoped<CursoSuperiorRepository>();
+            services.AddScoped<CursoTecnicoRepository>();
+            services.AddScoped<ExperienciaRepository>();
+            services.AddScoped<IdiomaRepository>();
             #endregion
 
 
