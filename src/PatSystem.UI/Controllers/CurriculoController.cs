@@ -44,27 +44,9 @@ namespace PatSystem.Controllers
         #region List
         public async Task<IActionResult> ListAsync()
         {
-            var curriculos = await _curriculoService.FindAllAsync();
-            var clientes = await _clienteService.FindAllAsync();
+            
 
-            var join = from cr in curriculos
-                       join cl in clientes
-                       on cr.ClienteID
-                       equals cl.ClienteId
-                       select new CRindexViewModel
-                       {
-                           CurriculoID = cr.CurriculoID,
-                           Nome = cl.Nome,
-                           Idade = cl.Idade,
-                           AreaAtuacao = cl.AreaAtuacao,
-                           EnsinoMedio = cl.EnsinoMedio,
-                           CursoTecnicoSN = cr.CursoTecnicoSN,
-                           CursoSuperiorSN = cr.CursoSuperiorSN,
-                           IdiomaSN = cr.IdiomaSN,
-                           ExperienciaSN = cr.ExperienciaSN
-                       };
-
-            return View(join);
+            return View();
         }
         #endregion
 

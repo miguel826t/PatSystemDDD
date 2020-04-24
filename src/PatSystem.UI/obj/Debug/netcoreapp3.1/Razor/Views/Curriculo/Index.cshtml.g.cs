@@ -27,7 +27,7 @@ using PatSystem.Domain.Entities;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2e256039ed2cb80d2d18993df4da2fa30908dfa4", @"/Views/Curriculo/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4efa4d975943c1152ce019ae61d3852016d15c2c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b1e3f0dde281b2f6beaf2a5816836e529cc46516", @"/Views/_ViewImports.cshtml")]
     public class Views_Curriculo_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

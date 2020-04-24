@@ -27,7 +27,7 @@ using PatSystem.Domain.Entities;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1a967781fe531e1afd7b5273fb44631c12b9f15f", @"/Views/Curriculo/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4efa4d975943c1152ce019ae61d3852016d15c2c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b1e3f0dde281b2f6beaf2a5816836e529cc46516", @"/Views/_ViewImports.cshtml")]
     public class Views_Curriculo_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PatSystem.UI.ViewModels.CRdetailsViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/Imgs/EditarCad.png"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

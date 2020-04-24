@@ -17,7 +17,7 @@ namespace PatSystem.Controllers
 
         #endregion
 
-
+        #region Construtor
         public SegDesempregoController(
             IRepository<Seguro> Seg,
             IRepository<Empresa> Emp,
@@ -27,7 +27,7 @@ namespace PatSystem.Controllers
             _Emp = Emp;
             _Cbo = Cbo;
         }
-
+        #endregion
 
 
 
@@ -41,30 +41,8 @@ namespace PatSystem.Controllers
 
         public async Task<IActionResult> ListAsync()
         {
-            var Seguro = await _Seg.FindAllAsync();
-            var Empresa = await _Emp.FindAllAsync();
-            var Cbo = await _Cbo.FindAllAsync();
 
-            var join = from seg in Seguro
-
-                       join emp in Empresa
-                       on seg.EmpresaId
-                       equals emp.EmpresaId
-
-                       join cbo in Cbo
-                       on seg.CodCboid
-                       equals cbo.CodCboId
-
-                       select new SegListViewModel
-                       {
-                           SegId = seg.SeguroId,
-                           CodSeguro = seg.CodSeguro,
-                           Profissao = cbo.Desc,
-                           Empresa = emp.Nome,
-                           Segmento = emp.Segmento
-                       };
-
-            return View(join);
+            return View();
         }
 
 

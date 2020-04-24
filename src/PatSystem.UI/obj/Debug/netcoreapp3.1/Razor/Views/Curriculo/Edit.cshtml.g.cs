@@ -27,7 +27,7 @@ using PatSystem.Domain.Entities;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"868d12916b7d8c955872481ab99f6b3d9a14dd7e", @"/Views/Curriculo/Edit.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4efa4d975943c1152ce019ae61d3852016d15c2c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b1e3f0dde281b2f6beaf2a5816836e529cc46516", @"/Views/_ViewImports.cshtml")]
     public class Views_Curriculo_Edit : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PatSystem.UI.ViewModels.CRdetailsViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/script/ScriptBuscaCidade.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

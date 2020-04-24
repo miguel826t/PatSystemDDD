@@ -220,3 +220,5 @@ C:\Trabalho\PatSystemDDD\src\PatSystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Se
 C:\Trabalho\PatSystemDDD\src\PatSystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\SegDesemprego\PartialViews\_MenuSuperior.cshtml.g.cs
 C:\Trabalho\PatSystemDDD\src\PatSystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\SegDesemprego\Index.cshtml.g.cs
 C:\Trabalho\PatSystemDDD\src\PatSystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\SegDesemprego\List.cshtml.g.cs
+C:\Trabalho\PatSystemDDD\src\PatSystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\ListCurriculos\Default.cshtml.g.cs
+C:\Trabalho\PatSystemDDD\src\PatSystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\ListSegDesemprego\Default.cshtml.g.cs

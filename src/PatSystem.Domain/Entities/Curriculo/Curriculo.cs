@@ -7,7 +7,7 @@ namespace PatSystem.Domain.Entities.Curriculo
         public int CurriculoID { get; set; }
 
         public int ClienteID { get; set; }
-        public Cliente Cliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
         public DateTime DataCriacao { get; set; }
         public string CursoSuperiorSN { get; set; }

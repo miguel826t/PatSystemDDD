@@ -15,6 +15,6 @@ namespace PatSystem.Domain.Entities.Curriculo
         public string Descricao { get; set; }
 
         public int CurriculoID { get; set; }
-        public Curriculo Curriculo { get; set; }
+        public virtual Curriculo Curriculo { get; set; }
     }
 }
