@@ -10,7 +10,7 @@
 <hr />
 
 
-<form asp-action="Create" style="font-size:15px">
+<form asp-controller="Curriculo" style="font-size:15px">
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <nav id="Cliente">
@@ -160,7 +160,7 @@
                             </div>
 
                             <div class="col-lg-8 col-md-8 col-12">
-                                <input type="submit" class="form-control m-0 mr-sm-2">
+                                <input type="submit" asp-action="CreateCursoSuperior" class="form-control m-0 mr-sm-2">
                             </div>
                         </div>
                     </div>

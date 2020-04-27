@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\PatSystem.Domain.csproj",
         "projectName": "PatSystem.Domain",
         "projectPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\PatSystem.Domain.csproj",
-        "packagesPath": "C:\\Users\\est3\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
         "outputPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\est3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,11 +68,11 @@
         "projectUniqueName": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Infra\\PatSystem.Infra.csproj",
         "projectName": "PatSystem.Infra",
         "projectPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Infra\\PatSystem.Infra.csproj",
-        "packagesPath": "C:\\Users\\est3\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
         "outputPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\est3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

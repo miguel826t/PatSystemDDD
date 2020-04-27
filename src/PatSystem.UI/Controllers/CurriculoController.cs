@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PatSystem.Domain.Entities.Curriculo;
 using PatSystem.Domain.Entities.Curriculo.Cursos;
+using PatSystem.Domain.Common.Validations;
 using PatSystem.Infra.Repository;
+using PatSystem.Domain.Common.Messages;
 
 using PatSystem.UI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace PatSystem.Controllers
 {
@@ -52,14 +55,16 @@ namespace PatSystem.Controllers
 
         #region Create
 
-        //Get
-        public IActionResult Create(CRcreateViewModel createViewModel)
-        {
 
-            #region CursosSuperior
-            if (createViewModel.CursoSuperior != null)
+        public IActionResult CreateCursoSuperior(CRcreateViewModel createViewModel)
+        {
+            try
             {
+                AssertionConcern.AssertArgumentNotEmpty(createViewModel.CursoSuperior.Nome, string.Format(Messages.ItemRequired, "Nome do Curso é obrigatorio"));
+
                 List<CursoSuperior> CursosSuperior = new List<CursoSuperior>();
+
+
                 if (createViewModel.CursosSuperior == null && createViewModel.CursoSuperior.CursoSuperiorId == 0)
                 {
                     createViewModel.CursoSuperior.CursoSuperiorId = 1;
@@ -76,33 +81,100 @@ namespace PatSystem.Controllers
                 }
                 CursosSuperior.Add(createViewModel.CursoSuperior);
                 createViewModel.CursosSuperior = CursosSuperior;
-                createViewModel.CursoSuperior = null;
-            }
-            #endregion
 
-            #region CursosTecnico
-            if (createViewModel.CursoTecnico != null)
+
+                TempData["CreateCursoSuperior"] = JsonConvert.SerializeObject(createViewModel); 
+
+                return RedirectToAction(nameof(Create));
+
+            }catch(Exception ex)
             {
-                List<CursoTecnico> CursosTecnico = new List<CursoTecnico>();
-                if (createViewModel.CursosTecnico == null && createViewModel.CursoTecnico.CursoTecnicoId == 0)
+               string erro = "Erro ao criar Curso Superior" + ex.ToString();
+                return RedirectToAction(nameof(Create), erro);
+            }
+            
+        }
+
+
+
+        public IActionResult CreateCursoTecnico(CRcreateViewModel createViewModel)
+        {
+            try
+            {
+                AssertionConcern.AssertArgumentNotEmpty(createViewModel.CursoSuperior.Nome, string.Format(Messages.ItemRequired, "Nome do Curso é obrigatorio"));
+
+                List<CursoSuperior> CursosSuperior = new List<CursoSuperior>();
+
+
+                if (createViewModel.CursosSuperior == null && createViewModel.CursoSuperior.CursoSuperiorId == 0)
                 {
-                    createViewModel.CursoTecnico.CursoTecnicoId = 1;
+                    createViewModel.CursoSuperior.CursoSuperiorId = 1;
                 }
                 else
                 {
-                    if (createViewModel.CursoTecnico.CursoTecnicoId == 0)
+                    if (createViewModel.CursoSuperior.CursoSuperiorId == 0)
                     {
-                        CursosTecnico = createViewModel.CursosTecnico;
-                        var ultId = createViewModel.CursosTecnico[CursosTecnico.Count - 1];
-                        int IdLast = ultId.CursoTecnicoId;
-                        createViewModel.CursoTecnico.CursoTecnicoId = IdLast + 1;
+                        CursosSuperior = createViewModel.CursosSuperior;
+                        var ultId = createViewModel.CursosSuperior[CursosSuperior.Count - 1];
+                        int IdLast = ultId.CursoSuperiorId;
+                        createViewModel.CursoSuperior.CursoSuperiorId = IdLast + 1;
                     }
                 }
-                CursosTecnico.Add(createViewModel.CursoTecnico);
-                createViewModel.CursosTecnico = CursosTecnico;
-                createViewModel.CursoTecnico = new CursoTecnico();
+                CursosSuperior.Add(createViewModel.CursoSuperior);
+                createViewModel.CursosSuperior = CursosSuperior;
+
+
+                TempData["CreateCursoSuperior"] = JsonConvert.SerializeObject(createViewModel);
+
+                return RedirectToAction(nameof(Create));
+
             }
-            #endregion
+            catch (Exception ex)
+            {
+                string erro = "Erro ao criar Curso Superior" + ex.ToString();
+                return RedirectToAction(nameof(Create), erro);
+            }
+
+        }
+
+
+
+        //Get
+        [HttpGet]
+        public IActionResult Create(CRcreateViewModel createViewModel,string erro)
+        {
+            if (TempData["CreateCursoSuperior"] != null)
+            {
+                //createViewModel = TempData["CreateCursoSuperior"] as CRcreateViewModel;
+                createViewModel = JsonConvert.DeserializeObject<CRcreateViewModel>(TempData["CreateCursoSuperior"].ToString());
+                
+                return View(createViewModel);
+            }
+
+
+            //#region CursosTecnico
+            //if (createViewModel.CursoTecnico != null)
+            //{
+            //    List<CursoTecnico> CursosTecnico = new List<CursoTecnico>();
+            //    if (createViewModel.CursosTecnico == null && createViewModel.CursoTecnico.CursoTecnicoId == 0)
+            //    {
+            //        createViewModel.CursoTecnico.CursoTecnicoId = 1;
+            //    }
+            //    else
+            //    {
+            //        if (createViewModel.CursoTecnico.CursoTecnicoId == 0)
+            //        {
+            //            CursosTecnico = createViewModel.CursosTecnico;
+            //            var ultId = createViewModel.CursosTecnico[CursosTecnico.Count - 1];
+            //            int IdLast = ultId.CursoTecnicoId;
+            //            createViewModel.CursoTecnico.CursoTecnicoId = IdLast + 1;
+            //        }
+            //    }
+            //    CursosTecnico.Add(createViewModel.CursoTecnico);
+            //    createViewModel.CursosTecnico = CursosTecnico;
+            //    createViewModel.CursoTecnico = new CursoTecnico();
+            //}
+            //#endregion
 
             return View(createViewModel);
         }
