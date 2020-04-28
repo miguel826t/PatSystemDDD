@@ -6870,7 +6870,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\migue\\.nuget\\packages\\": {}
+    "C:\\Users\\est3\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -6878,11 +6878,11 @@
       "projectUniqueName": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.UI\\PatSystem.UI.csproj",
       "projectName": "PatSystem.UI",
       "projectPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.UI\\PatSystem.UI.csproj",
-      "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\est3\\.nuget\\packages\\",
       "outputPath": "C:\\Trabalho\\PatSystemDDD\\src\\PatSystem.UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\est3\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

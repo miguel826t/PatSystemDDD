@@ -8,6 +8,7 @@ namespace PatSystem.Domain.Entities.Curriculo
         public int ClienteId { get; set; }
 
         [StringLength(40, MinimumLength = 3, ErrorMessage = "{0} deve ter de {2} a {1} caracteres")]
+        [Display(Name = "Nome Completo")]
         [Required(ErrorMessage = "{0} é Obrigatório")]
         public string Nome { get; set; }
 
@@ -16,13 +17,13 @@ namespace PatSystem.Domain.Entities.Curriculo
         [DataType(DataType.Date)]
         public DateTime Nascimento { get; set; }
 
-        [Display(Name = "Tl. Fixo")]
+        [Display(Name = "Telefone Fixo")]
         [Required(ErrorMessage = "{0} é Obrigatório")]
         public string TlFixo { get; set; }
 
 
         [Required(ErrorMessage = "{0} é Obrigatório")]
-        [Display(Name = "Celular")]
+        [Display(Name = "Telefone Celular")]
         public string TlMovel { get; set; }
 
         [EmailAddress(ErrorMessage = "Insira um E-mail valido")]

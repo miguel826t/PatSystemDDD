@@ -1,16 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using PatSystem.Domain.Common.Messages;
+using PatSystem.Domain.Common.Validations;
 using PatSystem.Domain.Entities.Curriculo;
 using PatSystem.Domain.Entities.Curriculo.Cursos;
-using PatSystem.Domain.Common.Validations;
 using PatSystem.Infra.Repository;
-using PatSystem.Domain.Common.Messages;
-
 using PatSystem.UI.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace PatSystem.Controllers
 {
@@ -47,7 +45,7 @@ namespace PatSystem.Controllers
         #region List
         public async Task<IActionResult> ListAsync()
         {
-            
+
 
             return View();
         }
@@ -55,12 +53,13 @@ namespace PatSystem.Controllers
 
         #region Create
 
-
+        #region Create CR Superior
         public IActionResult CreateCursoSuperior(CRcreateViewModel createViewModel)
         {
             try
             {
-                AssertionConcern.AssertArgumentNotEmpty(createViewModel.CursoSuperior.Nome, string.Format(Messages.ItemRequired, "Nome do Curso é obrigatorio"));
+                AssertionConcern.AssertArgumentNotEmpty(createViewModel.CursoSuperior.Nome, string.Format(Messages.ItemRequired, "Nome do Curso"));
+                AssertionConcern.AssertArgumentNotNull(createViewModel.CursoSuperior, string.Format(Messages.ItemRequired, "Curso Superior"));
 
                 List<CursoSuperior> CursosSuperior = new List<CursoSuperior>();
 
@@ -83,48 +82,7 @@ namespace PatSystem.Controllers
                 createViewModel.CursosSuperior = CursosSuperior;
 
 
-                TempData["CreateCursoSuperior"] = JsonConvert.SerializeObject(createViewModel); 
-
-                return RedirectToAction(nameof(Create));
-
-            }catch(Exception ex)
-            {
-               string erro = "Erro ao criar Curso Superior" + ex.ToString();
-                return RedirectToAction(nameof(Create), erro);
-            }
-            
-        }
-
-
-
-        public IActionResult CreateCursoTecnico(CRcreateViewModel createViewModel)
-        {
-            try
-            {
-                AssertionConcern.AssertArgumentNotEmpty(createViewModel.CursoSuperior.Nome, string.Format(Messages.ItemRequired, "Nome do Curso é obrigatorio"));
-
-                List<CursoSuperior> CursosSuperior = new List<CursoSuperior>();
-
-
-                if (createViewModel.CursosSuperior == null && createViewModel.CursoSuperior.CursoSuperiorId == 0)
-                {
-                    createViewModel.CursoSuperior.CursoSuperiorId = 1;
-                }
-                else
-                {
-                    if (createViewModel.CursoSuperior.CursoSuperiorId == 0)
-                    {
-                        CursosSuperior = createViewModel.CursosSuperior;
-                        var ultId = createViewModel.CursosSuperior[CursosSuperior.Count - 1];
-                        int IdLast = ultId.CursoSuperiorId;
-                        createViewModel.CursoSuperior.CursoSuperiorId = IdLast + 1;
-                    }
-                }
-                CursosSuperior.Add(createViewModel.CursoSuperior);
-                createViewModel.CursosSuperior = CursosSuperior;
-
-
-                TempData["CreateCursoSuperior"] = JsonConvert.SerializeObject(createViewModel);
+                TempData["CreateCurriculo"] = JsonConvert.SerializeObject(createViewModel);
 
                 return RedirectToAction(nameof(Create));
 
@@ -136,45 +94,111 @@ namespace PatSystem.Controllers
             }
 
         }
+        #endregion
+
+        #region CR Tecnico
+        public IActionResult CreateCursoTecnico(CRcreateViewModel createViewModel)
+        {
+            try
+            {
+                AssertionConcern.AssertArgumentNotEmpty(createViewModel.CursoTecnico.Nome, string.Format(Messages.ItemRequired, "Nome do Tecnico"));
+                AssertionConcern.AssertArgumentNotNull(createViewModel.CursoTecnico, string.Format(Messages.ItemRequired, "Curso Tecnico"));
+
+                List<CursoTecnico> CursosTecnico = new List<CursoTecnico>();
+                if (createViewModel.CursosTecnico == null && createViewModel.CursoTecnico.CursoTecnicoId == 0)
+                {
+                    createViewModel.CursoTecnico.CursoTecnicoId = 1;
+                }
+                else
+                {
+                    if (createViewModel.CursoTecnico.CursoTecnicoId == 0)
+                    {
+                        CursosTecnico = createViewModel.CursosTecnico;
+                        var ultId = createViewModel.CursosTecnico[CursosTecnico.Count - 1];
+                        int IdLast = ultId.CursoTecnicoId;
+                        createViewModel.CursoTecnico.CursoTecnicoId = IdLast + 1;
+                    }
+                }
+                CursosTecnico.Add(createViewModel.CursoTecnico);
+                createViewModel.CursosTecnico = CursosTecnico;
 
 
+
+                TempData["CreateCurriculo"] = JsonConvert.SerializeObject(createViewModel);
+
+                return RedirectToAction(nameof(Create));
+
+            }
+            catch (Exception ex)
+            {
+                string erro = "Erro ao criar Curso Tecnico" + ex.ToString();
+                return RedirectToAction(nameof(Create), erro);
+            }
+
+        }
+        #endregion
+
+        #region CR Idioma
+
+        public IActionResult CreateIdioma(CRcreateViewModel createViewModel)
+        {
+            try
+            {
+                AssertionConcern.AssertArgumentNotEquals(createViewModel.Idioma.Nome,0, string.Format(Messages.ItemRequired, "Nome do Tecnico"));
+                AssertionConcern.AssertArgumentNotNull(createViewModel.Idioma, string.Format(Messages.ItemRequired, "Curso Tecnico"));
+
+                List<Idioma> Idiomas = new List<Idioma>();
+                if (createViewModel.Idiomas == null && createViewModel.Idioma.IdiomaId == 0)
+                {
+                    createViewModel.Idioma.IdiomaId = 1;
+                }
+                else
+                {
+                    if (createViewModel.Idioma.IdiomaId == 0)
+                    {
+                        Idiomas = createViewModel.Idiomas;
+                        var ultId = createViewModel.Idiomas[Idiomas.Count - 1];
+                        int IdLast = ultId.IdiomaId;
+                        createViewModel.Idioma.IdiomaId = IdLast + 1;
+                    }
+                }
+                Idiomas.Add(createViewModel.Idioma);
+                createViewModel.Idiomas = Idiomas;
+
+
+
+                TempData["CreateCurriculo"] = JsonConvert.SerializeObject(createViewModel);
+
+                return RedirectToAction(nameof(Create));
+
+            }
+            catch (Exception ex)
+            {
+                string erro = "Erro ao criar Idioma" + ex.ToString();
+                return RedirectToAction(nameof(Create), erro);
+            }
+
+        }
+
+        #endregion
 
         //Get
         [HttpGet]
-        public IActionResult Create(CRcreateViewModel createViewModel,string erro)
+        public IActionResult Create(CRcreateViewModel createViewModel, string erro)
         {
-            if (TempData["CreateCursoSuperior"] != null)
+            if (TempData["CreateCurriculo"] != null)
             {
                 //createViewModel = TempData["CreateCursoSuperior"] as CRcreateViewModel;
-                createViewModel = JsonConvert.DeserializeObject<CRcreateViewModel>(TempData["CreateCursoSuperior"].ToString());
-                
+                createViewModel = JsonConvert.DeserializeObject<CRcreateViewModel>(TempData["CreateCurriculo"].ToString());
+
                 return View(createViewModel);
             }
 
+            if (erro != string.Empty)
+            {
+                createViewModel.Erros = erro;
+            }
 
-            //#region CursosTecnico
-            //if (createViewModel.CursoTecnico != null)
-            //{
-            //    List<CursoTecnico> CursosTecnico = new List<CursoTecnico>();
-            //    if (createViewModel.CursosTecnico == null && createViewModel.CursoTecnico.CursoTecnicoId == 0)
-            //    {
-            //        createViewModel.CursoTecnico.CursoTecnicoId = 1;
-            //    }
-            //    else
-            //    {
-            //        if (createViewModel.CursoTecnico.CursoTecnicoId == 0)
-            //        {
-            //            CursosTecnico = createViewModel.CursosTecnico;
-            //            var ultId = createViewModel.CursosTecnico[CursosTecnico.Count - 1];
-            //            int IdLast = ultId.CursoTecnicoId;
-            //            createViewModel.CursoTecnico.CursoTecnicoId = IdLast + 1;
-            //        }
-            //    }
-            //    CursosTecnico.Add(createViewModel.CursoTecnico);
-            //    createViewModel.CursosTecnico = CursosTecnico;
-            //    createViewModel.CursoTecnico = new CursoTecnico();
-            //}
-            //#endregion
 
             return View(createViewModel);
         }
@@ -182,67 +206,84 @@ namespace PatSystem.Controllers
         //Post
         public async Task<ActionResult> CreateCR(CRcreateViewModel createViewModel)
         {
-            var cliente = createViewModel.Cliente;
-            var cursoSuperior = createViewModel.CursoSuperior;
-            var cursoTecnico = createViewModel.CursoTecnico;
-            var experiencia = createViewModel.Experiencia;
-            var idioma = createViewModel.Idioma;
+            try
+            {
+                await _clienteService.InsertAsync(createViewModel.Cliente);
 
-            await _clienteService.InsertAsync(cliente);
+                Curriculo curriculo = new Curriculo
+                {
+                    ClienteID = createViewModel.Cliente.ClienteId,
+                    DataCriacao = DateTime.Now,
+                };
 
-            Curriculo curriculo = new Curriculo
-            {
-                ClienteID = cliente.ClienteId,
-                DataCriacao = DateTime.Now,
-            };
+                if (createViewModel.CursosSuperior == null)
+                {
+                    curriculo.CursoSuperiorSN = "Não";
+                }
+                else
+                {
+                    curriculo.CursoSuperiorSN = "Sim";
+                }
+                if (createViewModel.CursosSuperior == null)
+                {
+                    curriculo.CursoTecnicoSN = "Não";
+                }
+                else
+                {
+                    curriculo.CursoTecnicoSN = "Sim";
+                }
+                if (createViewModel.Idiomas == null)
+                {
+                    curriculo.IdiomaSN = "Não";
+                }
+                else
+                {
+                    curriculo.IdiomaSN = "Sim";
+                }
+                if (createViewModel.Experiencias == null)
+                {
+                    curriculo.ExperienciaSN = "Não";
+                }
+                else
+                {
+                    curriculo.ExperienciaSN = "Sim";
+                }
 
-            if (createViewModel.CursoSuperior.Status == 0)
-            {
-                curriculo.CursoSuperiorSN = "Não";
-            }
-            else
-            {
-                curriculo.CursoSuperiorSN = "Sim";
-            }
-            if (createViewModel.CursoTecnico.Status == 0)
-            {
-                curriculo.CursoTecnicoSN = "Não";
-            }
-            else
-            {
-                curriculo.CursoTecnicoSN = "Sim";
-            }
-            if (createViewModel.Idioma.NivelFluencia == 0)
-            {
-                curriculo.IdiomaSN = "Não";
-            }
-            else
-            {
-                curriculo.IdiomaSN = "Sim";
-            }
-            if (createViewModel.Experiencia.NomeEmpresa == string.Empty)
-            {
-                curriculo.ExperienciaSN = "Não";
-            }
-            else
-            {
-                curriculo.ExperienciaSN = "Sim";
-            }
+                await _curriculoService.InsertAsync(curriculo);
 
-            await _curriculoService.InsertAsync(curriculo);
-            cursoSuperior.CurriculoID = curriculo.CurriculoID;
-            await _cursoSuperiorService.InsertAsync(cursoSuperior);
 
-            cursoTecnico.CurriculoID = curriculo.CurriculoID;
-            await _cursoTecnicoService.InsertAsync(cursoTecnico);
+                foreach (var item in createViewModel.CursosSuperior)
+                {
+                    item.CurriculoID = curriculo.CurriculoID;
+                    await _cursoSuperiorService.InsertAsync(item);
+                }
 
-            experiencia.CurriculoID = curriculo.CurriculoID;
-            await _experienciaService.InsertAsync(experiencia);
+                foreach (var item in createViewModel.CursosTecnico)
+                {
+                    item.CurriculoID = curriculo.CurriculoID;
+                    await _cursoTecnicoService.InsertAsync(item);
+                }
 
-            idioma.CurriculoID = curriculo.CurriculoID;
-            await _idiomaService.InsertAsync(idioma);
+                foreach (var item in createViewModel.Experiencias)
+                {
+                    item.CurriculoID = curriculo.CurriculoID;
+                    await _experienciaService.InsertAsync(item);
+                }
 
-            return RedirectToAction("List");
+                foreach (var item in createViewModel.Idiomas)
+                {
+                    item.CurriculoID = curriculo.CurriculoID;
+                    await _idiomaService.InsertAsync(item);
+                }
+
+                return RedirectToAction("List");
+            }
+            catch(Exception ex)
+            {
+                createViewModel.Erros = "Erro ao Criar Curriculo: " + ex;
+                TempData["CreateCurriculo"] = JsonConvert.SerializeObject(createViewModel);
+                return RedirectToAction(nameof(Create));
+            }
         }
 
         #endregion

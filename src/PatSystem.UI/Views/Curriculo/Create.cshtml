@@ -9,9 +9,19 @@
 @await Html.PartialAsync("~/Views/Curriculo/PartialViews/_MenuSuperior.cshtml")
 <hr />
 
+@if (Model.Erros != null)
+{
+    <div class="col-12 mt-4">
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            @Html.DisplayFor(model => model.Erros)
+        </div>
+    </div>
+}
 
 <form asp-controller="Curriculo" style="font-size:15px">
     <div asp-validation-summary="All" class="text-danger"></div>
+
 
     <nav id="Cliente">
         <div class="card mb-4 py-1 border-bottom-primary">
@@ -41,7 +51,7 @@
 
                     <div class="col-lg-4 col-md-4 col-12">
                         <label asp-for="Cliente.TlMovel" class="mb-1 mr-sm-2"></label>
-                        <input asp-for="Cliente.TlMovel" class="form-control m-0 mr-sm-2 mb-3">
+                        <input asp-for="Cliente.TlMovel" placeholder="(00) 0 0000-0000" class="form-control m-0 mr-sm-2 mb-3">
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-12">
@@ -112,6 +122,7 @@
         </div>
     </nav>
 
+
     <nav id="Cursos">
         <!-- Modal Criar Curso Superior -->
         <div id="ModalCursoSuperior" class="w3-modal pt-5">
@@ -172,7 +183,6 @@
         <div class="card mb-4 py-1 border-bottom-primary">
             <div class="w3-bar w3-white active py-1" role="tab" id="id02" data-toggle="collapse" data-target="#c02">
                 <button onclick="document.getElementById('ModalCursoSuperior').style.display='block'" type="button" class="w3-bar-item w3-button w3-left w3-hover-none pr-0 pt-2"><i class="fas fa-plus-square mr-1"></i></button>
-                @*<a onclick="document.getElementById('mParcelas').style.display='block'" class="w3-bar-item"><i class="fas fa-plus-square mr-1" style="cursor:pointer"></i></a>*@
                 <h6 class="w3-bar-item m-0 font-weight-bold text-primary pl-1">Curso Superior</h6>
                 <button type="button" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
             </div>
@@ -257,7 +267,7 @@
                             </div>
 
                             <div class="col-lg-8 col-md-8 col-12">
-                                <input type="submit" class="form-control m-0 mr-sm-2">
+                                <input asp-action="CreateCursoTecnico" type="submit" class="form-control m-0 mr-sm-2">
                             </div>
 
                         </div>
@@ -307,89 +317,178 @@
 
 
     <nav id="Idioma">
-        <div class="card mb-4 py-1 border-bottom-primary">
-            <div class="w3-bar w3-white active py-1" role="tab" id="id02" data-toggle="collapse" data-target="#c02">
-                <h6 class="w3-bar-item m-0 font-weight-bold text-primary">Idioma</h6>
-                <button type="button" class="w3-bar-item w3-button w3-left w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
-            </div>
-            <div id="c01" class="collapse show border-top">
-                <div class="row card-body">
+        <div id="ModalIdioma" class="w3-modal pt-5">
+            <div class="w3-modal-content text-left rounded" style="width:800px;">
+                <header class="card-header rounded-top w3-border-bottom">
+                    <span onclick="document.getElementById('ModalIdioma').style.display='none'" class="w3-button w3-hover-text-red w3-hover-none w3-display-topright rounded-right" title="Fechar"><i class="fas fa-times"></i></span>
+                    <h3 class="m-0 font-weight-bold text-primary">Adicionar um Novo Idioma</h3>
+                </header>
+                <div class="table-responsive modal-body">
+                    <div id="c01" class="collapse show border-top">
+                        <div class="row card-body">
 
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <label asp-for="Idioma.Nome" class="mb-1 mr-sm-2"></label>
-                        <select class="custom-select" asp-for="Idioma.Nome "
-                                asp-items="Html.GetEnumSelectList<PatSystem.Domain.Enums.Linguas>()">
-                        </select>
+
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="Idioma.Nome" class="mb-1 mr-sm-2"></label>
+                                <select class="custom-select" asp-for="Idioma.Nome "
+                                        asp-items="Html.GetEnumSelectList<PatSystem.Domain.Enums.Linguas>()">
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="Idioma.AnosCursados" class="mb-1 mr-sm-2"></label>
+                                <input asp-for="Idioma.AnosCursados" class="form-control m-0 mr-sm-2">
+                            </div>
+
+
+                            <div class="col-lg-4 col-md-4 col-12">
+                                <label asp-for="Idioma.NivelFluencia" class="mb-1 mr-sm-2"></label>
+                                <select class="form-control" asp-for="Idioma.NivelFluencia "
+                                        asp-items="Html.GetEnumSelectList<PatSystem.Domain.Enums.LevelSpeak>()">
+                                </select>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <label asp-for="Idioma.Instituicao" class="mb-1 mr-sm-2"></label>
+                                <input asp-for="Idioma.Instituicao" class="form-control m-0 mr-sm-2">
+                            </div>
+
+                            <div class="col-lg-8 col-md-8 col-12">
+                                <input asp-action="CreateIdioma" type="submit" class="form-control m-0 mr-sm-2">
+                            </div>
+
+                        </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <label asp-for="Idioma.Instituicao" class="mb-1 mr-sm-2"></label>
-                        <input asp-for="Idioma.Instituicao" class="form-control m-0 mr-sm-2">
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-0"></div>
-
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <label asp-for="Idioma.AnosCursados" class="mb-1 mr-sm-2"></label>
-                        <input asp-for="Idioma.AnosCursados" class="form-control m-0 mr-sm-2">
-                    </div>
-
-
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <label asp-for="Idioma.NivelFluencia" class="mb-1 mr-sm-2"></label>
-                        <select class="form-control" asp-for="Idioma.NivelFluencia "
-                                asp-items="Html.GetEnumSelectList<PatSystem.Domain.Enums.LevelSpeak>()">
-                        </select>
-                    </div>
-
                 </div>
             </div>
+        </div>
+
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id02" data-toggle="collapse" data-target="#c02">
+                <button onclick="document.getElementById('ModalIdioma').style.display='block'" type="button" class="w3-bar-item w3-button w3-left w3-hover-none pr-0 pt-2"><i class="fas fa-plus-square mr-1"></i></button>
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary pl-1">Idioma</h6>
+                <button type="button" class="w3-bar-item w3-button w3-left w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
+            </div>
+            <table class="w3-table table-bordered w3-small w3-table-all w3-striped w3-border w3-white">
+                @if (Model.Idiomas != null)
+                {
+                    <thead>
+                        <tr>
+                            <th class="w3-center">Codigo</th>
+                            <th class="w3-left-align">Nome</th>
+                            <th class="w3-center">Anos Cursados</th>
+                            <th class="w3-center">Nivel</th>
+                            <th class="w3-center">Instituição</th>
+                            <th class="w3-center">Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var i = 0; i < Model.Idiomas.Count; i++)
+                        {
+                            <tr>
+                                <td class="w3-center">@Model.Idiomas[i].IdiomaId<input asp-for="Idiomas[i].IdiomaId" readonly style="border:0px;background:none;" class="w3-center" value="@Model.Idiomas[i].IdiomaId" type="hidden" /></td>
+                                <td class="w3-center"><input asp-for="Idiomas[i].Nome" readonly style="border:0px;background:none;" class="w3-center" value="@Model.Idiomas[i].Nome" /></td>
+                                <td class="w3-center"><input asp-for="Idiomas[i].AnosCursados" readonly style="border:0px;background:none;" class="w3-center" value="@Model.Idiomas[i].AnosCursados" /></td>
+                                <td class="w3-center"><input asp-for="Idiomas[i].NivelFluencia" readonly style="border:0px;background:none;" class="w3-center" value="@Model.Idiomas[i].NivelFluencia" /></td>
+                                <td class="w3-center"><input asp-for="Idiomas[i].Instituicao" readonly style="border:0px;background:none;" class="w3-center" value="@Model.Idiomas[i].Instituicao" /></td>
+                                <td class="w3-center" style="padding:0px;"><a class="btn w3-hover-red btn-sm" style="margin-top:3px;"><i class="far fa-trash-alt"></i></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                }
+            </table>
         </div>
     </nav>
 
 
     <nav id="Experiencia">
-        <div class="card mb-4 py-1 border-bottom-primary">
-            <div class="w3-bar w3-white active py-1" role="tab" id="id02" data-toggle="collapse" data-target="#c02">
-                <h6 class="w3-bar-item m-0 font-weight-bold text-primary">Experiencia</h6>
-                <button type="button" class="w3-bar-item w3-button w3-left w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
-            </div>
-            <div id="c01" class="collapse show border-top">
-                <div class="row card-body">
+        <div id="ModalExperiencia" class="w3-modal pt-5">
+            <div class="w3-modal-content text-left rounded" style="width:800px;">
+                <header class="card-header rounded-top w3-border-bottom">
+                    <span onclick="document.getElementById('ModalExperiencia').style.display='none'" class="w3-button w3-hover-text-red w3-hover-none w3-display-topright rounded-right" title="Fechar"><i class="fas fa-times"></i></span>
+                    <h3 class="m-0 font-weight-bold text-primary">Adicionar um Novo Idioma</h3>
+                </header>
+                <div class="table-responsive modal-body">
+                    <div class="row card-body">
 
 
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <label asp-for="Experiencia.NomeEmpresa" class="mb-1 mr-sm-2"></label>
-                        <input asp-for="Experiencia.NomeEmpresa" class="form-control m-0 mr-sm-2">
-                    </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <label asp-for="Experiencia.NomeEmpresa" class="mb-1 mr-sm-2"></label>
+                            <input asp-for="Experiencia.NomeEmpresa" class="form-control m-0 mr-sm-2">
+                        </div>
 
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <label asp-for="Experiencia.UltimoCargo" class="mb-1 mr-sm-2"></label>
-                        <input asp-for="Experiencia.UltimoCargo" class="form-control m-0 mr-sm-2">
-                    </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <label asp-for="Experiencia.UltimoCargo" class="mb-1 mr-sm-2"></label>
+                            <input asp-for="Experiencia.UltimoCargo" class="form-control m-0 mr-sm-2">
+                        </div>
 
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <label asp-for="Experiencia.Anos" class="mb-1 mr-sm-2"></label>
-                        <input asp-for="Experiencia.Anos" class="form-control m-0 mr-sm-2">
-                    </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <label asp-for="Experiencia.Anos" class="mb-1 mr-sm-2"></label>
+                            <input asp-for="Experiencia.Anos" class="form-control m-0 mr-sm-2">
+                        </div>
 
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <label asp-for="Experiencia.Descricao" class="mb-1 mr-sm-2"></label>
-                        <input asp-for="Experiencia.Descricao" class="form-control m-0 mr-sm-2">
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <label asp-for="Experiencia.Descricao" class="mb-1 mr-sm-2"></label>
+                            <input asp-for="Experiencia.Descricao" class="form-control m-0 mr-sm-2">
+                        </div>
+
+                        <div class="col-lg-8 col-md-8 col-12">
+                            <input asp-action="CreateExperiencia" type="submit" class="form-control m-0 mr-sm-2">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="card mb-4 py-1 border-bottom-primary">
+            <div class="w3-bar w3-white active py-1" role="tab" id="id02" data-toggle="collapse" data-target="#c02">
+                <button onclick="document.getElementById('ModalExperiencia').style.display='block'" type="button" class="w3-bar-item w3-button w3-left w3-hover-none pr-0 pt-2"><i class="fas fa-plus-square mr-1"></i></button>
+                <h6 class="w3-bar-item m-0 font-weight-bold text-primary pl-1">Idioma</h6>
+                <button type="button" class="w3-bar-item w3-button w3-left w3-hover-none w3-hover-text-blue"><i class="fas fa-sort"></i></button>
+            </div>
+            <table class="w3-table table-bordered w3-small w3-table-all w3-striped w3-border w3-white">
+                @if (Model.Experiencias != null)
+                {
+                    <thead>
+                        <tr>
+                            <th class="w3-center">Codigo</th>
+                            <th class="w3-left-align">Empresa</th>
+                            <th class="w3-center">Cargo</th>
+                            <th class="w3-center">Anos</th>
+                            <th class="w3-center">Descricao</th>
+                            <th class="w3-center">Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var i = 0; i < Model.Experiencias.Count; i++)
+                        {
+                            <tr>
+                                <td class="w3-center">@Model.Experiencias[i].ExperienciaId<input asp-for="Experiencias[i].ExperienciaId" readonly style="border:0px;background:none;" class="w3-center" value="@Model.Experiencias[i].ExperienciaId" type="hidden" /></td>
+                                <td class="w3-center"><input asp-for="Experiencias[i].NomeEmpresa" readonly style="border:0px;background:none;" class="w3-center" value="@Model.Experiencias[i].NomeEmpresa" /></td>
+                                <td class="w3-center"><input asp-for="Experiencias[i].UltimoCargo" readonly style="border:0px;background:none;" class="w3-center" value="@Model.Experiencias[i].UltimoCargo" /></td>
+                                <td class="w3-center"><input asp-for="Experiencias[i].Anos" readonly style="border:0px;background:none;" class="w3-center" value="@Model.Experiencias[i].Anos" /></td>
+                                <td class="w3-center"><input asp-for="Experiencias[i].Descricao" readonly style="border:0px;background:none;" class="w3-center" value="@Model.Experiencias[i].Descricao" /></td>
+                                <td class="w3-center" style="padding:0px;"><a class="btn w3-hover-red btn-sm" style="margin-top:3px;"><i class="far fa-trash-alt"></i></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                }
+            </table>
+        </div>
+
     </nav>
+
+
 
     <div class="form-group row mt-2">
         <a asp-action="Index" class="btn btn-primary mr-2">Voltar</a>
-        <input class="btn btn-success pr-3" type="submit" value="Criar" btn btn-primary" />
+        <input asp-action="CreateCR" class="btn btn-success  pr-3" type="submit" value="Criar" btn btn-primary" />
     </div>
 </form>
 
 
 
 @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

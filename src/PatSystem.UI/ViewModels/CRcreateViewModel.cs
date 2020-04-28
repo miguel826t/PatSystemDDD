@@ -15,5 +15,6 @@ namespace PatSystem.UI.ViewModels
         public List<Experiencia> Experiencias { get; set; }
         public Idioma Idioma { get; set; }
         public List<Idioma> Idiomas { get; set; }
+        public string Erros { get; set; }
     }
 }
